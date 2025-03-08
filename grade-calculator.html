@@ -231,34 +231,36 @@
         }
 
         function calculateGWA() {
-            let grades = document.querySelectorAll(".gwa-grade");
-            let total = 0, count = 0;
+    let grades = document.querySelectorAll(".gwa-grade");
+    let total = 0, count = 0;
 
-            grades.forEach(input => {
-                let value = parseFloat(input.value);
-                if (!isNaN(value) && value >= 1.0 && value <= 4.0) {
-                    total += value;
-                    count++;
-                }
-            });
-
-            if (count === 0) {
-                document.getElementById("gwaResult").innerText = "Enter valid grades!";
-                return;
-            }
-
-            let gwa = total / count;
-            let resultText = `Your GWA: ${gwa.toFixed(2)}`;
-
-            if (gwa >= 3.50) {
-                resultText += " - 1st Honor Dean's Lister!";
-            } else if (gwa >= 3.25) {
-                resultText += " - 2nd Honor Dean's Lister!";
-            }
-
-            document.getElementById("gwaResult").innerText = resultText;
+    grades.forEach(input => {
+        let value = parseFloat(input.value);
+        if (!isNaN(value) && value >= 1.0 && value <= 4.0) {
+            total += value;
+            count++;
         }
+    });
 
+    if (count === 0) {
+        document.getElementById("gwaResult").innerText = "Enter valid grades!";
+        return;
+    }
+
+    let gwa = total / count;
+    let resultText = `Your GWA: ${gwa.toFixed(2)}`;
+
+    if (gwa >= 3.50) {
+        resultText += " - 1st Honor Dean's Lister! 🎉";
+    } else if (gwa >= 3.25) {
+        resultText += " - 2nd Honor Dean's Lister! 🎉";
+    } else {
+        resultText += " - Better luck next time! 😞";
+    }
+
+    document.getElementById("gwaResult").innerText = resultText;
+     }
+        
         function calculateGE() {
             let learning = parseFloat(document.getElementById("ge-learning").value) || 0;
             let performance = parseFloat(document.getElementById("ge-performance").value) || 0;

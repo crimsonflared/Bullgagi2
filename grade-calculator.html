@@ -195,55 +195,83 @@
     </main>
 
     <script>
-        let subjectCount = 0;
+    let subjectCount = 4; // Start with 4 subjects by default
 
-        function toggleCalculator(id) {
-            let section = document.getElementById(id);
-            section.style.display = section.style.display === "block" ? "none" : "block";
+    document.addEventListener("DOMContentLoaded", function () {
+        let container = document.getElementById("gwaInputs");
+        for (let i = 1; i <= 4; i++) {
+            addGWAInput();
         }
+    });
 
-        function addGWAInput() {
-            let container = document.getElementById("gwaInputs");
-            if (container.children.length < 15) {
-                subjectCount++;
-                let div = document.createElement("div");
-                div.className = "gwa-input-group";
-                div.innerHTML = `
-                    <input type="text" class="gwa-subject" value="Subject ${subjectCount}" readonly>
-                    <input type="number" class="gwa-grade" min="1.0" max="4.0" step="0.01" placeholder="Enter grade">
-                `;
-                container.appendChild(div);
-            }
+    function toggleCalculator(id) {
+        let section = document.getElementById(id);
+        section.style.display = section.style.display === "block" ? "none" : "block";
+    }
+
+    function addGWAInput() {
+        let container = document.getElementById("gwaInputs");
+        if (container.children.length < 15) {
+            let div = document.createElement("div");
+            div.className = "gwa-input-group";
+            div.innerHTML = `
+                <input type="text" class="gwa-subject" value="Subject ${subjectCount}" readonly>
+                <input type="number" class="gwa-grade" min="1.0" max="4.0" step="0.01" placeholder="Enter grade">
+            `;
+            container.appendChild(div);
+            subjectCount++;
         }
+    }
 
-        function calculateGWA() {
-            let grades = document.querySelectorAll(".gwa-grade");
-            let total = 0, count = 0;
+    function calculateGWA() {
+        let grades = document.querySelectorAll(".gwa-grade");
+        let total = 0, count = 0;
+        let lowestGrade = 4.0; 
 
-            grades.forEach(input => {
-                let value = parseFloat(input.value);
-                if (!isNaN(value) && value >= 1.0 && value <= 4.0) {
-                    total += value;
-                    count++;
+        grades.forEach(input => {
+            let value = parseFloat(input.value);
+            if (!isNaN(value) && value >= 1.0 && value <= 4.0) {
+                total += value;
+                count++;
+                if (value < lowestGrade) {
+                    lowestGrade = value;
                 }
-            });
-
-            if (count === 0) {
-                document.getElementById("gwaResult").innerText = "Enter valid grades!";
-                return;
             }
+        });
 
-            let gwa = total / count;
-            document.getElementById("gwaResult").innerText = `Your GWA: ${gwa.toFixed(2)}`;
+        if (count === 0) {
+            document.getElementById("gwaResult").innerText = "Enter valid grades!";
+            return;
         }
 
-        function clearGWA() {
-            if (confirm("Are you sure you want to clear all inputs?")) {
-                document.getElementById("gwaInputs").innerHTML = "";
-                document.getElementById("gwaResult").innerText = "";
-                subjectCount = 0;
+        let gwa = total / count;
+        let resultText = `Your GWA: ${gwa.toFixed(2)}`;
+
+        if (lowestGrade >= 2.5) {  
+            if (gwa >= 3.50) {
+                resultText += "\n🎉 Congratulations! You are a Dean's Lister - First Honor!";
+            } else if (gwa >= 3.25) {
+                resultText += "\n🎉 Congratulations! You are a Dean's Lister - Second Honor!";
+            } else {
+                resultText += "\n💪 Keep going! You can do better next time!";
+            }
+        } else {
+            resultText += "\n💪 Keep pushing forward! Don't give up!";
+        }
+
+        document.getElementById("gwaResult").innerText = resultText;
+    }
+
+    function clearGWA() {
+        if (confirm("Are you sure you want to clear all inputs?")) {
+            document.getElementById("gwaInputs").innerHTML = "";
+            document.getElementById("gwaResult").innerText = "";
+            subjectCount = 1;
+            for (let i = 1; i <= 4; i++) {
+                addGWAInput();
             }
         }
-    </script>
+    }
+            </script>
 </body>
 </html>

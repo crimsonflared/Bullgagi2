@@ -387,6 +387,7 @@ function addGWAInput() {
         subjectCount++;
     }
 }
+
 function calculateGWA() {
     let inputs = document.querySelectorAll(".gwa-input-group");
     let totalWeightedGrades = 0;
@@ -426,6 +427,7 @@ function calculateGWA() {
 
     let resultText = `Your GWA: ${gwa.toFixed(2)}\nPercentage Equivalent: ${percentageText}`;
 
+    // Dean's Lister logic
     if (lowestGrade >= 2.5) {  
         if (gwa >= 3.50) {
             resultText += "\n🎉 Congratulations! First Honor Dean Lister!";
@@ -440,6 +442,7 @@ function calculateGWA() {
 
     document.getElementById("gwaResult").innerText = resultText;
 }
+        
 function clearGWA() {
     if (confirm("Are you sure you want to clear all inputs?")) {
         document.getElementById("gwaInputs").innerHTML = "";

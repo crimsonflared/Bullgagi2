@@ -6,8 +6,6 @@
     <title>Grade Calculator - BULLGAGI</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-       
-
         .calculator-container {
             max-width: 800px;
             margin: 20px auto;
@@ -15,7 +13,7 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            text-align: left;
+            text-align: center;
         }
 
         .calculator-title {
@@ -50,6 +48,99 @@
             border-radius: 5px;
         }
 
+        .gwa-grade {
+            width: calc(100% - 20px);
+            padding: 12px;
+            margin: 5px 0;
+            border: 2px solid var(--dark-blue);
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: var(--white);
+            color: var(--dark-blue);
+            text-align: center;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .gwa-grade::placeholder {
+            color: var(--dark-blue);
+            opacity: 0.7;
+            font-style: italic;
+        }
+
+        .gwa-grade:focus {
+            border-color: var(--gold);
+            background-color: var(--light-blue);
+        }
+
+        #gwaInputs {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+            max-width: 500px;
+            margin: auto;
+        }
+
+        .gwa-input-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            width: 100%;
+        }
+
+        .gwa-subject {
+            width: 60%;
+            padding: 10px;
+            border: 2px solid var(--dark-blue);
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: var(--white);
+            color: var(--dark-blue);
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .gwa-grade {
+            width: 40%;
+            padding: 10px;
+            border: 2px solid var(--dark-blue);
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: var(--white);
+            color: var(--dark-blue);
+            text-align: center;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .gwa-subject::placeholder,
+        .gwa-grade::placeholder {
+            color: var(--dark-blue);
+            opacity: 0.7;
+            font-style: italic;
+        }
+
+        .gwa-subject:focus,
+        .gwa-grade:focus {
+            border-color: var(--gold);
+            background-color: var(--light-blue);
+        }
+
+        .result {
+            margin-top: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
         button {
             background-color: var(--gold);
             color: var(--dark-blue);
@@ -65,92 +156,6 @@
             background-color: var(--dark-blue);
             color: var(--gold);
         }
-        .gwa-grade {
-    width: calc(100% - 20px);
-    padding: 12px;
-    margin: 5px 0;
-    border: 2px solid var(--dark-blue);
-    border-radius: 5px;
-    font-size: 16px;
-    background-color: var(--white);
-    color: var(--dark-blue);
-    text-align: center;
-    outline: none;
-    transition: 0.3s;
-}
-
-.gwa-grade::placeholder {
-    color: var(--dark-blue);
-    opacity: 0.7;
-    font-style: italic;
-}
-
-.gwa-grade:focus {
-    border-color: var(--gold);
-    background-color: var(--light-blue);
-}
-
-        #gwaInputs {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-    max-width: 500px;
-    margin: auto;
-}
-
-.gwa-input-group {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    width: 100%;
-}
-
-.gwa-subject {
-    width: 60%;
-    padding: 10px;
-    border: 2px solid var(--dark-blue);
-    border-radius: 5px;
-    font-size: 16px;
-    background-color: var(--white);
-    color: var(--dark-blue);
-    outline: none;
-    transition: 0.3s;
-}
-
-.gwa-grade {
-    width: 40%;
-    padding: 10px;
-    border: 2px solid var(--dark-blue);
-    border-radius: 5px;
-    font-size: 16px;
-    background-color: var(--white);
-    color: var(--dark-blue);
-    text-align: center;
-    outline: none;
-    transition: 0.3s;
-}
-
-.gwa-subject::placeholder,
-.gwa-grade::placeholder {
-    color: var(--dark-blue);
-    opacity: 0.7;
-    font-style: italic;
-}
-
-.gwa-subject:focus,
-.gwa-grade:focus {
-    border-color: var(--gold);
-    background-color: var(--light-blue);
-}
-        .result {
-            margin-top: 15px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            text-align: center;
-        }
-
-       
     </style>
 </head>
 <body>
@@ -174,60 +179,24 @@
         <div class="calculator-container">
             <div class="calculator-title" onclick="toggleCalculator('gwaCalc')">GWA Calculator</div>
             <div class="calculator-content" id="gwaCalc">
-                <p>Enter up to 10 grades (1.0 - 4.0):</p>
+                <p>Enter grades from 1.0 to 4.0</p>
+
+                <div id="gwaInputs"></div>
+
+                <div class="button-container">
+                    <button onclick="addGWAInput()">Add More</button>
+                    <button onclick="calculateGWA()">Calculate GWA</button>
+                    <button onclick="clearGWA()">Clear</button>
                 </div>
-            
-                <div id="gwaInputs">
-    <div class="gwa-input-group">
-        <input type="text" class="gwa-subject" placeholder="Subject Name">
-        <input type="number" class="gwa-grade" min="1.0" max="4.0" step="0.01" placeholder="Enter grade">
-    </div>
-    <div class="gwa-input-group">
-        <input type="text" class="gwa-subject" placeholder="Subject Name">
-        <input type="number" class="gwa-grade" min="1.0" max="4.0" step="0.01" placeholder="Enter grade">
-    </div>
-    <div class="gwa-input-group">
-        <input type="text" class="gwa-subject" placeholder="Subject Name">
-        <input type="number" class="gwa-grade" min="1.0" max="4.0" step="0.01" placeholder="Enter grade">
-    </div>
-    <div class="gwa-input-group">
-        <input type="text" class="gwa-subject" placeholder="Subject Name">
-        <input type="number" class="gwa-grade" min="1.0" max="4.0" step="0.01" placeholder="Enter grade">
-    </div>
-    <div class="gwa-input-group">
-        <input type="text" class="gwa-subject" placeholder="Subject Name">
-        <input type="number" class="gwa-grade" min="1.0" max="4.0" step="0.01" placeholder="Enter grade">
-    </div>
-                </div>
-            
-                <button onclick="addGWAInput()">Add More</button>
-                <button onclick="calculateGWA()">Calculate GWA</button>
+
                 <p class="result" id="gwaResult"></p>
             </div>
         </div>
-
-        <!-- GE Course Calculator -->
-        <div class="calculator-container">
-            <div class="calculator-title" onclick="toggleCalculator('geCalc')">GE Course Grade Calculator</div>
-            <div class="calculator-content" id="geCalc">
-                <div class="input-group">
-                    <label>Midterm:</label>
-                    <input type="number" id="ge-learning" placeholder="Learning Activities (30%)">
-                    <input type="number" id="ge-performance" placeholder="Performance Task (40%)">
-                    <input type="number" id="ge-midterm-exam" placeholder="Midterm Exam (30%)">
-                </div>
-                <button onclick="calculateGE()">Calculate GE Grade</button>
-                <p class="result" id="geResult"></p>
-            </div>
-        </div>
-
     </main>
 
-    <footer>
-        <p>&copy; 2025 BULLGAGI. All rights reserved.</p>
-    </footer>
-
     <script>
+        let subjectCount = 0;
+
         function toggleCalculator(id) {
             let section = document.getElementById(id);
             section.style.display = section.style.display === "block" ? "none" : "block";
@@ -235,56 +204,45 @@
 
         function addGWAInput() {
             let container = document.getElementById("gwaInputs");
-            if (container.children.length < 10) {
-                let input = document.createElement("input");
-                input.type = "number";
-                input.className = "gwa-grade";
-                input.min = "1.0";
-                input.max = "4.0";
-                input.step = "0.01";
-                input.placeholder = "Enter grade";
-                container.appendChild(input);
+            if (container.children.length < 15) {
+                subjectCount++;
+                let div = document.createElement("div");
+                div.className = "gwa-input-group";
+                div.innerHTML = `
+                    <input type="text" class="gwa-subject" value="Subject ${subjectCount}" readonly>
+                    <input type="number" class="gwa-grade" min="1.0" max="4.0" step="0.01" placeholder="Enter grade">
+                `;
+                container.appendChild(div);
             }
         }
 
         function calculateGWA() {
-    let grades = document.querySelectorAll(".gwa-grade");
-    let total = 0, count = 0;
+            let grades = document.querySelectorAll(".gwa-grade");
+            let total = 0, count = 0;
 
-    grades.forEach(input => {
-        let value = parseFloat(input.value);
-        if (!isNaN(value) && value >= 1.0 && value <= 4.0) {
-            total += value;
-            count++;
+            grades.forEach(input => {
+                let value = parseFloat(input.value);
+                if (!isNaN(value) && value >= 1.0 && value <= 4.0) {
+                    total += value;
+                    count++;
+                }
+            });
+
+            if (count === 0) {
+                document.getElementById("gwaResult").innerText = "Enter valid grades!";
+                return;
+            }
+
+            let gwa = total / count;
+            document.getElementById("gwaResult").innerText = `Your GWA: ${gwa.toFixed(2)}`;
         }
-    });
 
-    if (count === 0) {
-        document.getElementById("gwaResult").innerText = "Enter valid grades!";
-        return;
-    }
-
-    let gwa = total / count;
-    let resultText = `Your GWA: ${gwa.toFixed(2)}`;
-
-    if (gwa >= 3.50) {
-        resultText += " - 1st Honor Dean's Lister! 🎉";
-    } else if (gwa >= 3.25) {
-        resultText += " - 2nd Honor Dean's Lister! 🎉";
-    } else {
-        resultText += " - Better luck next time! 😞";
-    }
-
-    document.getElementById("gwaResult").innerText = resultText;
-     }
-        
-        function calculateGE() {
-            let learning = parseFloat(document.getElementById("ge-learning").value) || 0;
-            let performance = parseFloat(document.getElementById("ge-performance").value) || 0;
-            let midtermExam = parseFloat(document.getElementById("ge-midterm-exam").value) || 0;
-
-            let midtermGrade = (learning * 0.3) + (performance * 0.4) + (midtermExam * 0.3);
-            document.getElementById("geResult").innerText = `Final GE Grade: ${midtermGrade.toFixed(2)}`;
+        function clearGWA() {
+            if (confirm("Are you sure you want to clear all inputs?")) {
+                document.getElementById("gwaInputs").innerHTML = "";
+                document.getElementById("gwaResult").innerText = "";
+                subjectCount = 0;
+            }
         }
     </script>
 </body>

@@ -14,7 +14,7 @@ body, h1, h2, p, ul {
 
 body {
     font-family: Arial, sans-serif;
-    background-color: var(--dark-blue);
+    background-color: var(--light-blue);
     color: var(--white);
     text-align: center;
 }
@@ -29,7 +29,7 @@ header {
 
 /* Navigation Bar */
 nav {
-    background-color: var(--light-blue);
+    background-color: var(--dark-blue);
     padding: 10px;
 }
 

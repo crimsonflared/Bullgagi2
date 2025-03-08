@@ -7,32 +7,96 @@
     <link rel="stylesheet" href="styles.css">
     <style>
     
+:root {
+    --dark-blue: #00008B;
+    --light-blue: #ADD8E6;
+    --gold: #FFD700;
+    --white: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
 
-        .faq-item {
-            background-color: var(--white);
-            padding: 15px;
-            margin-bottom: 10px;
-            border-left: 5px solid var(--gold);
-            border-radius: 8px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        }
+/* FAQ Container */
+.faq-container {
+    max-width: 800px;
+    margin: 20px auto;
+}
 
-        .faq-question {
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 1.2rem;
-        }
+/* FAQ Items */
+.faq-item {
+    background-color: var(--white);
+    padding: 15px;
+    margin-bottom: 12px;
+    border-left: 5px solid var(--gold);
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px var(--shadow);
+    transition: 0.3s ease-in-out;
+}
 
-        .faq-answer {
-            display: none;
-            padding-top: 10px;
-            font-size: 1rem;
-        }
+/* Question Styling */
+.faq-question {
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .faq-item.active .faq-answer {
-            display: block;
-        }
+.faq-question::after {
+    content: "▼";
+    font-size: 14px;
+    color: var(--dark-blue);
+    transition: transform 0.3s ease-in-out;
+}
 
+/* Rotate Arrow When Open */
+.faq-item.active .faq-question::after {
+    transform: rotate(180deg);
+}
+
+/* Answer Styling */
+.faq-answer {
+    display: none;
+    padding-top: 10px;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Open Answer */
+.faq-item.active .faq-answer {
+    display: block;
+}
+
+/* Improved Table Styling */
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+    background: var(--white);
+    border: 1px solid var(--dark-blue);
+}
+
+.styled-table th, .styled-table td {
+    padding: 10px;
+    border: 1px solid var(--dark-blue);
+}
+
+.styled-table thead {
+    background-color: var(--gold);
+    color: black;
+    font-weight: bold;
+}
+
+.styled-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.styled-table tbody tr:hover {
+    background-color: var(--light-blue);
+}
        
         
     </style>
@@ -55,54 +119,66 @@
         <h2>Frequently Asked Questions</h2>
         <div class="faq-container">
             <div class="faq-item">
-                <p class="faq-question">1. What is Bullgagi?</p>
+                <p class="faq-question"> What is Bullgagi?</p>
                 <p class="faq-answer">Bullgagi is a platform that connects sellers and buyers in a trusted online community.</p>
             </div>
-<div class="faq-item">
-    <p class="faq-question">What are the qualifications for the Dean's Honors List?</p>
-    <p class="faq-answer">
-        The Registrar's Office releases the official list of honor students every term. Qualified students receive a Certificate of Recognition. To qualify, a student must:  
-        <br><br>
-        - Attain a **Term GWA of at least 3.25**:  
-          - **Dean's First Honors List**: GWA **3.50 or higher**  
-          - **Dean's Second Honors List**: GWA **3.25 to 3.49**  
-        <br>
-        - Carry a **minimum of 12 academic units**, unless the program flowchart specifies otherwise. If the regular load falls below 12 units, the Registrar's Office must validate the GWA.  
-        - **No final grade below 2.5** in any course.  
-        - **No failing grade (F, R, or 0.00)** in any course.  
-        - **No officially dropped (Dr) courses**.  
-        - **No incomplete (Inc) grades** at the time of the award.  
-        - Must not have been found guilty of **cheating or academic dishonesty** as per the Student Handbook.  
-    </p>
-</div>
+            
+
             
  <div class="faq-item">
     <p class="faq-question">What is the required CGWA to graduate with honors?</p>
     <p class="faq-answer">
-        The University awards three (3) types of Academic or Latin Honors to qualified students who have completed their bachelor's degree. Each award type is based on the **Cumulative General Weighted Average (CGWA)** of all course grades in the curriculum, except those in all Physical Education and National Service Training Program courses.  
-        <br><br>
-        Effective **AY 2023-2024**, final grades in the four (4) **Physical Activity Towards Health and Fitness (PATHFit)** courses, with the course codes **MCFIT01X to MCFIT04X**, are included in the CGWA computation.  
-        <br><br>
-        **The awards and their corresponding CGWA ranges are as follows:**  
-        - **Summa Cum Laude** – CGWA **3.75 or higher**  
-          - Awarded to students who graduate with the highest distinction for achieving the highest possible grades in their degree.  
-        - **Magna Cum Laude** – CGWA **3.50 - 3.74**  
-          - Awarded to students who graduate with great distinction, representing the middle tier of honors.  
-        - **Cum Laude** – CGWA **3.25 - 3.49**  
-          - The lowest level of academic honors awarded to students who graduate with distinction.  
-        <br>
-        The following guidelines apply to students who enrolled in **AY 2023-2024 onwards (student number from 2023)**. For students enrolled in **AY 2022 or earlier**, the policies in effect when they entered will be applied.  
-        <br><br>
-        **To qualify for academic honors, a student must:**  
-        1) Have a **CGWA of at least 3.25**.  
-        2) Have **no Fail (0.0), Repeat (R), Fail for Bridging/Intervention Courses (F), or Officially Dropped (Dr) grades** in any course taken at the University.  
-        3) Complete the program **within the prescribed curriculum length**.  
-        4) Complete **100% of courses in the curriculum at any National University campus**.  
-        5) Have **no record of disciplinary action for committing a major offense** as determined by the Student Discipline Office.  
-        <br>
-        **For transfer or second-degree students** who choose to take all courses in the curriculum and forego crediting of courses from a previous school or earned degree, the above provisions shall apply.  
+        The University awards **Academic Hon<div class="faq-item">
+    <p class="faq-question">What are the qualifications for the Dean's Honors List?</p>
+    <p class="faq-answer">
+        The **Registrar's Office** releases the official list of honor students every term. Qualified students receive a **Certificate of Recognition**.  
     </p>
-            </div>
+
+    <h3>GWA Requirements:</h3>
+    <ul>
+        <li><strong>Dean's First Honors List</strong> – Term GWA **3.50 or higher**</li>
+        <li><strong>Dean's Second Honors List</strong> – Term GWA **3.25 - 3.49**</li>
+    </ul>
+
+    <h3>Eligibility Criteria:</h3>
+    <ul>
+        <li>Carry a **minimum of 12 academic units** (unless the program flowchart specifies otherwise).</li>
+        <li>Obtain **no final grade below 2.5** in any course.</li>
+        <li>Have **no failing grades (F, R, or 0.00)**.</li>
+        <li>Have **no officially dropped (Dr) courses**.</li>
+        <li>Have **no incomplete (Inc) grades** at the time of the award.</li>
+        <li>Must not have any record of **cheating or academic dishonesty**, as per the Student Handbook.</li>
+    </ul>
+
+    <p><strong>Note:</strong> If a student's regular academic load falls below 12 units, the **Registrar's Office** must validate the GWA for eligibility.</p>
+        </div>ors (Latin Honors)** based on a student's **Cumulative General Weighted Average (CGWA)**. These honors recognize exceptional academic achievement throughout the degree program.  
+    </p>
+
+    <h3>CGWA Requirements for Latin Honors:</h3>
+    <ul>
+        <li><strong>Summa Cum Laude</strong> – CGWA **3.75 or higher** (Highest Distinction)</li>
+        <li><strong>Magna Cum Laude</strong> – CGWA **3.50 - 3.74** (Great Distinction)</li>
+        <li><strong>Cum Laude</strong> – CGWA **3.25 - 3.49** (Academic Distinction)</li>
+    </ul>
+
+    <h3>General Guidelines:</h3>
+    <ul>
+        <li>Grades in **Physical Education (PE) and NSTP courses** are not included in CGWA computation.</li>
+        <li>Effective **AY 2023-2024**, grades from **Physical Activity Towards Health and Fitness (PATHFit)** courses (**MCFIT01X to MCFIT04X**) are included.</li>
+        <li>Academic policies in effect at the time of admission determine eligibility.</li>
+    </ul>
+
+    <h3>Eligibility Criteria:</h3>
+    <ul>
+        <li>Maintain a **CGWA of at least 3.25**.</li>
+        <li>No failing grades (**0.0, R, F**), **dropped (Dr)**, or **incomplete (Inc)** grades.</li>
+        <li>Complete the program **within the prescribed curriculum timeframe**.</li>
+        <li>Earn **100% of course credits** from the university (no credited transfer units).</li>
+        <li>No **major disciplinary violations** as per university policies.</li>
+    </ul>
+
+    <p><strong>Note:</strong> Transfer or second-degree students who retake all courses instead of crediting previous coursework must still meet these requirements.</p>
+ </div>
 
 <div class="faq-item">
     <p class="faq-question">What is the grading system of the University?</p>
@@ -194,31 +270,21 @@
 
            
             <div class="faq-item">
-                <p class="faq-question">4. How do I become a verified seller?</p>
-                <p class="faq-answer">To become a verified seller, you must meet our requirements and undergo verification.</p>
+                <p class="faq-question">How do I become a verified seller?</p>
+                <p class="faq-answer">You need to answer the form provided by the admins to be a verified seller and have a pre approved role.</p>
             </div>
             <div class="faq-item">
-                <p class="faq-question">5. Can I report a suspicious seller?</p>
+                <p class="faq-question">Can I report a suspicious seller?</p>
                 <p class="faq-answer">Yes, you can report any suspicious activity through our Facebook page or by contacting an admin.</p>
             </div>
-            <div class="faq-item">
-                <p class="faq-question">6. What payment methods are accepted?</p>
-                <p class="faq-answer">Accepted payment methods vary by seller, but commonly include GCash, bank transfer, and COD.</p>
-            </div>
+            
             <div class="faq-item">
                 <p class="faq-question">7. How do I contact an admin?</p>
                 <p class="faq-answer">You can contact an admin through our Socials page, where links to their profiles are available.</p>
             </div>
+            
             <div class="faq-item">
-                <p class="faq-question">8. Is Bullgagi available outside the Philippines?</p>
-                <p class="faq-answer">Currently, Bullgagi primarily serves users in the Philippines.</p>
-            </div>
-            <div class="faq-item">
-                <p class="faq-question">9. Can I advertise my products on Bullgagi?</p>
-                <p class="faq-answer">Yes, you can post products as long as they follow our community guidelines.</p>
-            </div>
-            <div class="faq-item">
-                <p class="faq-question">10. Who should I contact for partnership inquiries?</p>
+                <p class="faq-question">Who should I contact for partnership inquiries?</p>
                 <p class="faq-answer">For partnerships, please message an admin or reach out through our official contact channels.</p>
             </div>
         </div>
@@ -230,11 +296,11 @@
 
     <script>
         document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const faqItem = question.parentElement;
-                faqItem.classList.toggle('active');
-            });
-        });
+    question.addEventListener('click', () => {
+        const faqItem = question.parentElement;
+        faqItem.classList.toggle('active');
+    });
+});
     </script>
 </body>
 </html>

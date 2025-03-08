@@ -180,9 +180,13 @@
             <div class="calculator-title" onclick="toggleCalculator('gwaCalc')">GWA Calculator</div>
             <div class="calculator-content" id="gwaCalc">
                 <p>Enter up to 10 grades (1.0 - 4.0):</p>
+                </div>
+            
                 <div id="gwaInputs">
+                    <input type="text" class="gwa-subject" placeholder="Subject Name">
                     <input type="number" class="gwa-grade" min="1.0" max="4.0" step="0.01" placeholder="Enter grade">
                 </div>
+            
                 <button onclick="addGWAInput()">Add More</button>
                 <button onclick="calculateGWA()">Calculate GWA</button>
                 <p class="result" id="gwaResult"></p>

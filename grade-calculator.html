@@ -81,51 +81,49 @@
             max-width: 500px;
             margin: auto;
         }
-
         .gwa-input-group {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            width: 100%;
-        }
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        width: 100%;
+    }
 
-        .gwa-subject {
-            width: 60%;
-            padding: 10px;
-            border: 2px solid var(--dark-blue);
-            border-radius: 5px;
-            font-size: 16px;
-            background-color: var(--white);
-            color: var(--dark-blue);
-            outline: none;
-            transition: 0.3s;
-        }
+    .gwa-subject, .gwa-units, .gwa-grade {
+        width: 33%;
+        padding: 10px;
+        border: 2px solid var(--dark-blue);
+        border-radius: 5px;
+        font-size: 16px;
+        background-color: var(--white);
+        color: var(--dark-blue);
+        text-align: center;
+        outline: none;
+        transition: 0.3s;
+    }
 
-        .gwa-grade {
-            width: 40%;
-            padding: 10px;
-            border: 2px solid var(--dark-blue);
-            border-radius: 5px;
-            font-size: 16px;
-            background-color: var(--white);
-            color: var(--dark-blue);
-            text-align: center;
-            outline: none;
-            transition: 0.3s;
-        }
+    .gwa-subject::placeholder,
+    .gwa-units::placeholder,
+    .gwa-grade::placeholder {
+        color: var(--dark-blue);
+        opacity: 0.7;
+        font-style: italic;
+    }
 
-        .gwa-subject::placeholder,
-        .gwa-grade::placeholder {
-            color: var(--dark-blue);
-            opacity: 0.7;
-            font-style: italic;
-        }
+    .gwa-subject:focus,
+    .gwa-units:focus,
+    .gwa-grade:focus {
+        border-color: var(--gold);
+        background-color: var(--light-blue);
+    }
 
-        .gwa-subject:focus,
-        .gwa-grade:focus {
-            border-color: var(--gold);
-            background-color: var(--light-blue);
-        }
+    .grade-percentage {
+        font-size: 0.9rem;
+        color: var(--dark-blue);
+        font-weight: bold;
+        text-align: center;
+    }
+
+        
 
         .result {
             margin-top: 15px;
@@ -331,6 +329,7 @@
         section.style.display = "none";
     }
         }
+        
 
     function addGWAInput() {
         let container = document.getElementById("gwaInputs");
@@ -339,12 +338,32 @@
             div.className = "gwa-input-group";
             div.innerHTML = `
                 <input type="text" class="gwa-subject" value="Subject ${subjectCount}" readonly>
-                <input type="number" class="gwa-grade" min="1.0" max="4.0" step="0.01" placeholder="Enter grade">
+                <input type="number" class="gwa-units" placeholder="Enter number of units" min="1">
+                <input type="number" class="gwa-grade" min="1.0" max="4.0" step="0.01" placeholder="Enter grade" oninput="updatePercentage(this)">
+                <div class="grade-percentage" id="percent${subjectCount}"></div>
             `;
             container.appendChild(div);
             subjectCount++;
         }
     }
+
+    function updatePercentage(input) {
+        let value = parseFloat(input.value);
+        let percentageText = "";
+
+        if (!isNaN(value)) {
+            if (value >= 3.5) percentageText = "90-100%";
+            else if (value >= 3.0) percentageText = "84-89%";
+            else if (value >= 2.5) percentageText = "78-83%";
+            else if (value >= 2.0) percentageText = "72-77%";
+            else if (value >= 1.5) percentageText = "66-71%";
+            else if (value >= 1.0) percentageText = "60-65%";
+            else percentageText = "< 60% (Fail)";
+        }
+
+        input.nextElementSibling.innerText = percentageText;
+    }
+       
 
     function calculateGWA() {
         let grades = document.querySelectorAll(".gwa-grade");
@@ -395,6 +414,7 @@
             }
         }
     }
+        
             </script>
 </body>
 </html>

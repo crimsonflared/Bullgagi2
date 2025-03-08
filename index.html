@@ -4,7 +4,136 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BULLGAGI</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #00008B; /* Dark Blue Background */
+            color: white; /* White text for readability */
+        }
+
+        /* Header */
+        header {
+            background-color: #00008B; /* Dark Blue */
+            color: #FFD700; /* Gold */
+            text-align: center;
+            padding: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            border-bottom: 4px solid #FFD700;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #00008B; /* Dark Blue */
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #FFD700; /* Gold */
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.3s;
+            padding: 10px;
+        }
+
+        nav ul li a:hover {
+            color: #ADD8E6; /* Light Blue */
+            text-decoration: underline;
+        }
+
+        /* Main Content */
+        main {
+            padding: 20px;
+            max-width: 1000px;
+            margin: auto;
+            background-color: #1E1E6D; /* Darker Blue for contrast */
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(255, 215, 0, 0.5); /* Gold glow */
+        }
+
+        /* Section Headings */
+        h2 {
+            color: #FFD700; /* Gold */
+            text-align: center;
+            border-bottom: 2px solid #FFD700;
+            padding-bottom: 5px;
+        }
+
+        /* Group History Section */
+        .group-history {
+            margin-top: 30px;
+        }
+
+        .group-container {
+            background-color: #2A2A8B; /* Slightly lighter blue */
+            padding: 20px;
+            border-left: 5px solid #FFD700;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+
+        .group-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 0px 10px rgba(255, 215, 0, 0.6);
+        }
+
+        .group-container h3 {
+            color: #FFD700;
+        }
+
+        .group-container p {
+            line-height: 1.6;
+        }
+
+        /* Community Purpose Section */
+        .community-purpose ul {
+            background-color: #2A2A8B;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .community-purpose ul li {
+            margin: 10px 0;
+        }
+
+        /* Disclaimer Section */
+        .disclaimer {
+            margin-top: 30px;
+            background-color: #2A2A8B;
+            padding: 15px;
+            border-radius: 8px;
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #00008B;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+            border-top: 4px solid #FFD700;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -14,15 +143,57 @@
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href=faqs.html#">FAQs</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
             <li><a href="socials.html">Socials</a></li>
             <li><a href="grade-calculator.html">Grade Calculator</a></li>
         </ul>
     </nav>
 
     <main>
-        <h2>Welcome to BULLGAGI</h2>
-        <p>Your helpful platform.</p>
+        <section class="welcome">
+            <h2>Welcome to BULLGAGI</h2>
+            <p>BULLGAGI is a student-driven platform dedicated to fostering a supportive and engaging community. Whether you need academic assistance, a place to express your thoughts, or a network to connect with fellow students, BULLGAGI is here to serve as your online hub.</p>
+        </section>
+
+        <section class="group-history">
+            <h2>Group History: The Evolution of BULLGAGI</h2>
+            <p>Over time, our community has grown, faced challenges, and adapted to ensure a safe and inclusive environment for students. Below is a brief history of how we arrived at BULLGAGI 2.0.</p>
+
+            <div class="group-container">
+                <h3>ASOSASYON ARF - The First Chapter</h3>
+                <p><strong>Motto:</strong> "ARF ARF!"</p>
+                <p>Asosasyon ARF was the first student group created with the goal of building an interactive and entertaining space for students. It served as a hub for discussions, announcements, and student engagement. However, due to internal circumstances, the original owner decided to pause and eventually archive the group. Out of respect for privacy, the specific reasons remain undisclosed.</p>
+            </div>
+
+            <div class="group-container">
+                <h3>BULLGAGI - A New Beginning</h3>
+                <p>After the first group was archived, students and community members sought a fresh start, leading to the creation of BULLGAGI. This group quickly gained traction, becoming an active online space for students to seek help, share insights, and engage in lighthearted discussions. However, due to reported violations, the group was unfortunately suspended, leading to another turning point.</p>
+            </div>
+
+            <div class="group-container">
+                <h3>BULLGAGI 2.0 - The Present and Future</h3>
+                <p>Determined not to let setbacks define the community, the admins launched <strong>BULLGAGI 2.0</strong>. This version of the group upholds the same mission—to support students—while implementing stricter moderation to ensure compliance with platform guidelines. Today, BULLGAGI 2.0 thrives as a safe and engaging environment for students to learn, grow, and connect.</p>
+            </div>
+        </section>
+
+        <section class="community-purpose">
+            <h2>Why Join BULLGAGI?</h2>
+            <p>Our group is more than just an online discussion board—it is a platform where students can:</p>
+            <ul>
+                <li>Seek academic help and share study resources.</li>
+                <li>Engage in friendly discussions and express their thoughts.</li>
+                <li>Connect with students who share similar interests.</li>
+                <li>Receive updates about student events and opportunities.</li>
+                <li>Support each other in navigating student life.</li>
+            </ul>
+            <p>We encourage all members to participate actively and respectfully, ensuring that BULLGAGI remains a space that benefits everyone.</p>
+        </section>
+
+        <section class="disclaimer">
+            <h2>Disclaimer</h2>
+            <p>The views and opinions expressed within this community are solely those of the individuals posting and do not necessarily reflect the perspectives of the group administrators, moderators, or any institution.</p>
+            <p><strong>Please note that this group is not affiliated with National University in any official capacity.</strong></p>
+        </section>
     </main>
 
     <footer>

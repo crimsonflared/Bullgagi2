@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grade Calculator - BULLGAGI</title>
+    <title>Grade Calculator - BULLGAGI 2.0</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         .calculator-container {
@@ -352,7 +352,8 @@
         let percentageText = "";
 
         if (!isNaN(value)) {
-            if (value >= 3.5) percentageText = "90-100%";
+            if (value >= 4.0) percentageText = "96-100%";
+            else if (value >= 3.5) percentageText = "90-95%";
             else if (value >= 3.0) percentageText = "84-89%";
             else if (value >= 2.5) percentageText = "78-83%";
             else if (value >= 2.0) percentageText = "72-77%";

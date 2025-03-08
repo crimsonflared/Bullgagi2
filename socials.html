@@ -6,6 +6,63 @@
     <title>Socials - BULLGAGI</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        :root {
+            --dark-blue: #00008B;
+            --light-blue: #ADD8E6;
+            --gold: #FFD700;
+            --white: #FFFFFF;
+        }
+
+        body {
+            background-color: var(--light-blue);
+            color: var(--dark-blue);
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        header {
+            background-color: var(--gold);
+            color: var(--dark-blue);
+            padding: 20px;
+            font-size: 2rem;
+        }
+
+        nav {
+            background-color: var(--dark-blue);
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--white);
+            font-weight: bold;
+            padding: 10px 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background-color: var(--gold);
+            color: var(--dark-blue);
+            border-radius: 5px;
+        }
+
+        main {
+            padding: 40px 20px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
         .social-buttons {
             display: flex;
             flex-direction: column;
@@ -18,18 +75,33 @@
             display: inline-block;
             background-color: var(--gold);
             color: var(--dark-blue);
-            padding: 10px 20px;
-            text-decoration: none;
+            padding: 15px 25px;
+            font-size: 1.2rem;
             font-weight: bold;
-            border-radius: 5px;
-            width: 80%;
-            max-width: 400px;
+            text-decoration: none;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 450px;
             text-align: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease-in-out;
         }
 
         .social-btn:hover {
             background-color: var(--dark-blue);
             color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            background-color: var(--gold);
+            color: var(--dark-blue);
+            padding: 15px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            font-size: 1rem;
         }
     </style>
 </head>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs - BULLGAGI</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --dark-blue: #00008B;
+            --light-blue: #ADD8E6;
+            --gold: #FFD700;
+            --white: #FFFFFF;
+        }
+
+        body {
+            background-color: var(--light-blue);
+            color: var(--dark-blue);
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        header {
+            background-color: var(--gold);
+            color: var(--dark-blue);
+            padding: 20px;
+            font-size: 2rem;
+        }
+
+        nav {
+            background-color: var(--dark-blue);
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--white);
+            font-weight: bold;
+            padding: 10px 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background-color: var(--gold);
+            color: var(--dark-blue);
+            border-radius: 5px;
+        }
+
+        main {
+            padding: 40px 20px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .faq-item {
+            background-color: var(--white);
+            padding: 15px;
+            margin-bottom: 10px;
+            border-left: 5px solid var(--gold);
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-question {
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .faq-answer {
+            display: none;
+            padding-top: 10px;
+            font-size: 1rem;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        footer {
+            background-color: var(--gold);
+            color: var(--dark-blue);
+            padding: 15px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>BULLGAGI</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+            <li><a href="socials.html">Socials</a></li>
+            <li><a href="calculator.html">Grade Calculator</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <p class="faq-question">1. What is Bullgagi?</p>
+                <p class="faq-answer">Bullgagi is a platform that connects sellers and buyers in a trusted online community.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-question">2. How can I join the Bullgagi Facebook group?</p>
+                <p class="faq-answer">You can join by clicking the link on our Socials page and requesting to be a member.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-question">3. Is there a fee for joining Bullgagi?</p>
+                <p class="faq-answer">No, joining Bullgagi is completely free!</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-question">4. How do I become a verified seller?</p>
+                <p class="faq-answer">To become a verified seller, you must meet our requirements and undergo verification.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-question">5. Can I report a suspicious seller?</p>
+                <p class="faq-answer">Yes, you can report any suspicious activity through our Facebook page or by contacting an admin.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-question">6. What payment methods are accepted?</p>
+                <p class="faq-answer">Accepted payment methods vary by seller, but commonly include GCash, bank transfer, and COD.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-question">7. How do I contact an admin?</p>
+                <p class="faq-answer">You can contact an admin through our Socials page, where links to their profiles are available.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-question">8. Is Bullgagi available outside the Philippines?</p>
+                <p class="faq-answer">Currently, Bullgagi primarily serves users in the Philippines.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-question">9. Can I advertise my products on Bullgagi?</p>
+                <p class="faq-answer">Yes, you can post products as long as they follow our community guidelines.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-question">10. Who should I contact for partnership inquiries?</p>
+                <p class="faq-answer">For partnerships, please message an admin or reach out through our official contact channels.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 BULLGAGI. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

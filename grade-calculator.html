@@ -115,6 +115,32 @@
         border-color: var(--gold);
         background-color: var(--light-blue);
     }
+        .gwa-header-group {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    padding: 5px 0;
+    border-bottom: 2px solid gold;
+    margin-bottom: 5px;
+}
+
+.gwa-header {
+    flex: 1;
+    text-align: center;
+}
+
+.gwa-input-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.gwa-subject, .gwa-units, .gwa-grade {
+    flex: 1;
+    margin: 2px;
+    padding: 5px;
+    text-align: center;
+}
 
     .grade-percentage {
         font-size: 0.9rem;
@@ -338,6 +364,68 @@ function addGWAInput() {
         `;
         container.appendChild(div);
         subjectCount++;
+    }
+}
+
+function calculateGWA() {
+    let grades = document.querySelectorAll(".gwa-grade");
+    let total = 0, count = 0;
+    let lowestGrade = 4.0;
+    let percentageText = "";
+
+    grades.forEach(input => {
+        let value = parseFloat(input.value);
+        if (!isNaN(value) && value >= 1.0 && value <= 4.0) {
+            total += value;
+            count++;
+            if (value < lowestGrade) {
+                lowestGrade = value;
+            }
+        }
+    });
+
+    if (count === 0) {
+        document.getElementById("gwaResult").innerText = "Enter valid grades!";
+        return;
+    }
+
+    let gwa = total / count;
+
+    // Determine percentage range
+    if (gwa >= 4.0) percentageText = "96-100%";
+    else if (gwa >= 3.5) percentageText = "90-95%";
+    else if (gwa >= 3.0) percentageText = "84-89%";
+    else if (gwa >= 2.5) percentageText = "78-83%";
+    else if (gwa >= 2.0) percentageText = "72-77%";
+    else if (gwa >= 1.5) percentageText = "66-71%";
+    else if (gwa >= 1.0) percentageText = "60-65%";
+    else percentageText = "< 60% (Fail)";
+
+    let resultText = `Your GWA: ${gwa.toFixed(2)}\nPercentage Equivalent: ${percentageText}`;
+
+    if (lowestGrade >= 2.5) {  
+        if (gwa >= 3.50) {
+            resultText += "\n🎉 Congratulations! First Honor Dean Lister!";
+        } else if (gwa >= 3.25) {
+            resultText += "\n🎉 Congratulations! Second Honor Dean Lister!";
+        } else {
+            resultText += "\n💪 Keep going! You can do better next time!";
+        }
+    } else {
+        resultText += "\n💪 Keep pushing forward! Don't give up!";
+    }
+
+    document.getElementById("gwaResult").innerText = resultText;
+}
+
+function clearGWA() {
+    if (confirm("Are you sure you want to clear all inputs?")) {
+        document.getElementById("gwaInputs").innerHTML = "";
+        document.getElementById("gwaResult").innerText = "";
+        subjectCount = 1;
+        for (let i = 1; i <= 4; i++) {
+            addGWAInput();
+        }
     }
 }
 

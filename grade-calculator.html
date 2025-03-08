@@ -391,8 +391,6 @@ function calculateGWA() {
     let inputs = document.querySelectorAll(".gwa-input-group");
     let totalWeightedGrades = 0;
     let totalUnits = 0;
-    let lowestGrade = 4.0;
-    let percentageText = "";
 
     inputs.forEach(input => {
         let units = parseFloat(input.querySelector(".gwa-units").value) || 0;
@@ -401,9 +399,6 @@ function calculateGWA() {
         if (units > 0 && grade >= 1.0 && grade <= 4.0) {
             totalWeightedGrades += (grade * units); // Multiply grade by units
             totalUnits += units;
-            if (grade < lowestGrade) {
-                lowestGrade = grade;
-            }
         }
     });
 
@@ -413,6 +408,9 @@ function calculateGWA() {
     }
 
     let gwa = totalWeightedGrades / totalUnits; // Compute weighted average
+
+    document.getElementById("gwaResult").innerText = `Your GWA: ${gwa.toFixed(2)}`;
+}
 
     // Determine percentage range
     if (gwa >= 4.0) percentageText = "96-100%";

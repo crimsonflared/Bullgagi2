@@ -14,8 +14,8 @@ body, h1, h2, p, ul {
 
 body {
     font-family: Arial, sans-serif;
-    background-color: var(--light-blue);
-    color: var(--white);
+    background-color: var(--light-blue); /* Lighter blue background */
+    color: var(--dark-blue);
     text-align: center;
 }
 
@@ -29,7 +29,7 @@ header {
 
 /* Navigation Bar */
 nav {
-    background-color: var(--dark-blue);
+    background-color: var(--dark-blue); /* Dark blue nav bar */
     padding: 10px;
 }
 
@@ -42,7 +42,7 @@ nav ul {
 
 nav a {
     text-decoration: none;
-    color: var(--dark-blue);
+    color: var(--white);
     font-weight: bold;
     padding: 10px 15px;
 }

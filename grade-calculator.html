@@ -118,23 +118,32 @@
 
 .gwa-header-group {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    text-align: center;
-    font-weight: bold;
-    padding: 8px 0;
-    border-bottom: 3px solid var(--gold);
     background-color: var(--dark-blue);
     color: var(--white);
-    border-radius: 5px 5px 0 0;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 10px 0;
+    border-radius: 5px;
+    border-bottom: 3px solid var(--gold);
+    margin-bottom: 10px;
 }
 
 .gwa-header {
-    padding: 10px;
+    flex: 1;
+    text-align: center;
+    padding: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1rem;
 }
 
-.gwa-header:nth-child(1) { flex: 40%; } /* SUBJECT */
-.gwa-header:nth-child(2),
-.gwa-header:nth-child(3) { flex: 30%; } /* UNITS & GRADES */
+.gwa-header:hover {
+    color: var(--gold);
+    transition: 0.3s;
+}
+ 
 
 .gwa-input-group {
     display: flex;

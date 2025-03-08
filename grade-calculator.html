@@ -392,17 +392,19 @@ function calculateGWA() {
     let inputs = document.querySelectorAll(".gwa-input-group");
     let totalWeightedGrades = 0;
     let totalUnits = 0;
-    let lowestGrade = 4.0;
+    let lowestGrade = null; // Start with null to handle any grade input properly
     let percentageText = "";
 
     inputs.forEach(input => {
         let units = parseFloat(input.querySelector(".gwa-units").value) || 0;
         let grade = parseFloat(input.querySelector(".gwa-grade").value) || 0;
 
-        if (units > 0 && grade >= 1.0 && grade <= 4.0) {
+        if (units > 0 && grade >= 0.0 && grade <= 4.0) { // Allow 0.0 as a valid input
             totalWeightedGrades += (grade * units); // Multiply grade by units
             totalUnits += units;
-            if (grade < lowestGrade) {
+
+            // Find the lowest grade entered
+            if (lowestGrade === null || grade < lowestGrade) {
                 lowestGrade = grade;
             }
         }
@@ -427,8 +429,8 @@ function calculateGWA() {
 
     let resultText = `Your GWA: ${gwa.toFixed(2)}\nPercentage Equivalent: ${percentageText}`;
 
-    // Dean's Lister logic
-    if (lowestGrade >= 2.5) {  
+    // Dean's List check (must not have failing grades)
+    if (lowestGrade !== null && lowestGrade >= 2.5) {  
         if (gwa >= 3.50) {
             resultText += "\n🎉 Congratulations! First Honor Dean Lister!";
         } else if (gwa >= 3.25) {

@@ -156,6 +156,34 @@
             background-color: var(--dark-blue);
             color: var(--gold);
         }
+            .grading-table th, .grading-table td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .grading-table th {
+        background-color: #00008B;
+        color: white;
+        font-weight: bold;
+    }
+
+    .grading-table tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    /* Row colors */
+    .excellent { background-color: #FFD700; }  /* Gold */
+    .very-good { background-color: #ffeb99; }  /* Light Gold */
+    .good { background-color: #add8e6; }  /* Light Blue */
+    .above-satisfactory { background-color: #b0e0e6; }  /* Powder Blue */
+    .satisfactory { background-color: #d3f8e2; }  /* Light Green */
+    .fair { background-color: #ffdab9; }  /* Peach */
+    .pass { background-color: #98fb98; }  /* Pale Green */
+    .repeat { background-color: #ffcccb; }  /* Light Red */
+    .fail, .fail-bridging { background-color: #ff7f7f; }  /* Red */
+    .dropped, .incomplete { background-color: #d3d3d3; }  /* Gray */
+    .pass-bridging { background-color: #c3e6cb; }  /* Soft Green
     </style>
 </head>
 <body>

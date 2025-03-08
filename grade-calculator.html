@@ -28,7 +28,7 @@
         }
 
         .calculator-content {
-            display: none;
+            
             padding: 15px;
         }
 
@@ -205,9 +205,13 @@
     });
 
     function toggleCalculator(id) {
-        let section = document.getElementById(id);
-        section.style.display = section.style.display === "block" ? "none" : "block";
+    let section = document.getElementById(id);
+    if (section.style.display === "none" || section.style.display === "") {
+        section.style.display = "block";
+    } else {
+        section.style.display = "none";
     }
+        }
 
     function addGWAInput() {
         let container = document.getElementById("gwaInputs");

@@ -145,6 +145,36 @@
 }
  
 
+
+        .gwa-header-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+    background-color: var(--dark-blue);
+    color: var(--white);
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 3px solid var(--gold);
+    border-radius: 5px 5px 0 0;
+}
+
+.gwa-header {
+    width: 33%;
+    padding: 10px;
+    border: 2px solid var(--dark-blue);
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: var(--white);
+    color: var(--dark-blue);
+    text-align: center;
+    outline: none;
+}
+
+.gwa-header:nth-child(1)::after { content: "Subject"; }
+.gwa-header:nth-child(2)::after { content: "Units"; }
+.gwa-header:nth-child(3)::after { content: "Grade"; }
 .gwa-input-group {
     display: flex;
     justify-content: space-between;

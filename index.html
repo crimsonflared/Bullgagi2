@@ -7,33 +7,64 @@
     <link rel="stylesheet" href="styles.css">
 
     <style>
-        /* Main Content */
+        /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #2C4FA4; /* Even Lighter Blue */
+    color: white;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Header */
+header {
+    background-color: #00008B; /* Dark Blue */
+    padding: 15px 0;
+    color: #FFD700; /* Gold */
+    font-size: 24px;
+}
+
+/* Navigation Bar */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #00008B; /* Dark Blue */
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #FFD700; /* Gold */
+    text-decoration: none;
+    font-size: 16px;
+}
+
+nav ul li a:hover {
+    color: #ADD8E6; /* Light Blue */
+}
+
+/* Main Content */
 main {
     padding: 25px;
-    max-width: 700px; /* Reduced from 900px */
-    margin: 30px auto; /* Added more vertical spacing */
-    background-color: #2C4FA4; /* Even Lighter Blue */
+    max-width: 700px;
+    margin: 30px auto;
+}
+
+/* General Container Style */
+.container {
+    background-color: #3659B3; /* Slightly Lighter Blue */
+    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(255, 215, 0, 0.5); /* Gold glow */
+    margin-bottom: 30px;
+    box-shadow: 0px 0px 10px rgba(255, 215, 0, 0.5); /* Gold Glow */
 }
 
-/* Section Headings */
-h2 {
-    color: #FFD700; /* Gold */
-    text-align: center;
-    border-bottom: 2px solid #FFD700;
-    padding-bottom: 8px;
-    font-size: 22px;
-    margin-bottom: 20px; /* Added space below headings */
-}
-
-/* Welcome Section (Smaller) */
-.welcome {
-    text-align: center;
-    padding: 15px;
-    margin-bottom: 25px; /* Added spacing below */
-}
-
+/* Welcome Section */
 .welcome h2 {
     font-size: 20px;
 }
@@ -43,17 +74,17 @@ h2 {
 }
 
 /* Group History Section */
-.group-history {
-    margin-top: 30px;
-    padding-top: 15px;
+.group-history h2 {
+    margin-bottom: 15px;
 }
 
+/* Group Containers */
 .group-container {
-    background-color: #3659B3; /* Slightly Lighter Blue */
-    padding: 20px;
-    border-left: 6px solid #FFD700; /* Slightly thicker */
+    background-color: #2C4FA4; /* Lighter Blue */
+    padding: 15px;
+    border-left: 6px solid #FFD700;
     border-radius: 8px;
-    margin-bottom: 30px; /* Added more space between group containers */
+    margin-bottom: 20px;
     transition: transform 0.3s;
 }
 
@@ -64,23 +95,40 @@ h2 {
 
 .group-container h3 {
     color: #FFD700;
-    margin-bottom: 10px; /* Added spacing below titles */
 }
 
 .group-container p {
-    line-height: 1.8; /* Improved spacing for better readability */
+    line-height: 1.8;
+}
+
+/* Why Join BULLGAGI Section */
+.why-join ul {
+    text-align: left;
+    display: inline-block;
+    margin: 10px auto;
+    padding: 0;
+}
+
+.why-join ul li {
+    list-style: disc;
+    margin: 5px 0;
+    color: #FFD700;
 }
 
 /* Disclaimer Section */
 .disclaimer {
-    margin-top: 40px; /* Increased top spacing */
-    background-color: #3659B3;
-    padding: 20px;
-    border-radius: 8px;
     font-style: italic;
-    text-align: center;
-    line-height: 1.6;
 }
+
+/* Footer */
+footer {
+    background-color: #00008B; /* Dark Blue */
+    padding: 15px 0;
+    color: white;
+    font-size: 14px;
+}
+
+
 
 
     </style>

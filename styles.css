@@ -1,0 +1,69 @@
+/* Color Palette */
+:root {
+    --dark-blue: #00008B;
+    --light-blue: #ADD8E6;
+    --gold: #FFD700;
+    --white: #FFFFFF;
+}
+
+/* Reset styles */
+body, h1, h2, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--dark-blue);
+    color: var(--white);
+    text-align: center;
+}
+
+/* Header */
+header {
+    background-color: var(--gold);
+    color: var(--dark-blue);
+    padding: 20px;
+    font-size: 2rem;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: var(--light-blue);
+    padding: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--dark-blue);
+    font-weight: bold;
+    padding: 10px 15px;
+}
+
+nav a:hover {
+    background-color: var(--gold);
+    color: var(--dark-blue);
+    border-radius: 5px;
+}
+
+/* Main Content */
+main {
+    padding: 50px 20px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--gold);
+    color: var(--dark-blue);
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

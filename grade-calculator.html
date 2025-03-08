@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Calculator - BULLGAGI</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --dark-blue: #00008B;
+            --light-blue: #ADD8E6;
+            --gold: #FFD700;
+            --white: #FFFFFF;
+        }
+
+        body {
+            background-color: var(--light-blue);
+            color: var(--dark-blue);
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        header {
+            background-color: var(--gold);
+            color: var(--dark-blue);
+            padding: 20px;
+            font-size: 2rem;
+        }
+
+        nav {
+            background-color: var(--dark-blue);
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--white);
+            font-weight: bold;
+            padding: 10px 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background-color: var(--gold);
+            color: var(--dark-blue);
+            border-radius: 5px;
+        }
+
+        main {
+            padding: 40px 20px;
+        }
+
+        .calculator-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .input-group label {
+            font-weight: bold;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid var(--dark-blue);
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: var(--gold);
+            color: var(--dark-blue);
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: var(--dark-blue);
+            color: var(--gold);
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: var(--gold);
+            color: var(--dark-blue);
+            padding: 15px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>BULLGAGI</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+            <li><a href="socials.html">Socials</a></li>
+            <li><a href="calculator.html">Grade Calculator</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Grade Calculator</h2>
+
+        <div class="calculator-container">
+            <h3>GWA Calculator</h3>
+            <p>Enter up to 10 grades (1.0 - 4.0):</p>
+            <div id="gwaInputs">
+                <input type="number" class="gwa-grade" min="1.0" max="4.0" step="0.01" placeholder="Enter grade">
+            </div>
+            <button onclick="addGWAInput()">Add More</button>
+            <button onclick="calculateGWA()">Calculate GWA</button>
+            <p class="result" id="gwaResult"></p>
+        </div>
+
+        <br>
+
+        <div class="calculator-container">
+            <h3>GE Course Grade Calculator</h3>
+            <div class="input-group">
+                <label>Midterm:</label>
+                <input type="number" id="ge-learning" placeholder="Learning Activities (30%)">
+                <input type="number" id="ge-performance" placeholder="Performance Task (40%)">
+                <input type="number" id="ge-midterm-exam" placeholder="Midterm Exam (30%)">
+            </div>
+            <div class="input-group">
+                <label>Finals:</label>
+                <input type="number" id="ge-learning-finals" placeholder="Learning Activities/Quiz (30%)">
+                <input type="number" id="ge-performance-finals" placeholder="Performance Task (40%)">
+                <input type="number" id="ge-midterm-exam-finals" placeholder="Midterm Exam (15%)">
+                <input type="number" id="ge-final-exam" placeholder="Final Exam (15%)">
+            </div>
+            <button onclick="calculateGE()">Calculate GE Grade</button>
+            <p class="result" id="geResult"></p>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 BULLGAGI. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function addGWAInput() {
+            let container = document.getElementById("gwaInputs");
+            if (container.children.length < 10) {
+                let input = document.createElement("input");
+                input.type = "number";
+                input.className = "gwa-grade";
+                input.min = "1.0";
+                input.max = "4.0";
+                input.step = "0.01";
+                input.placeholder = "Enter grade";
+                container.appendChild(input);
+            }
+        }
+
+        function calculateGWA() {
+            let grades = document.querySelectorAll(".gwa-grade");
+            let total = 0, count = 0;
+
+            grades.forEach(input => {
+                let value = parseFloat(input.value);
+                if (!isNaN(value) && value >= 1.0 && value <= 4.0) {
+                    total += value;
+                    count++;
+                }
+            });
+
+            if (count === 0) {
+                document.getElementById("gwaResult").innerText = "Enter valid grades!";
+                return;
+            }
+
+            let gwa = total / count;
+            let resultText = `Your GWA: ${gwa.toFixed(2)}`;
+
+            if (gwa >= 3.50) {
+                resultText += " - 1st Honor Dean's Lister!";
+            } else if (gwa >= 3.25) {
+                resultText += " - 2nd Honor Dean's Lister!";
+            }
+
+            document.getElementById("gwaResult").innerText = resultText;
+        }
+
+        function calculateGE() {
+            let learning = parseFloat(document.getElementById("ge-learning").value) || 0;
+            let performance = parseFloat(document.getElementById("ge-performance").value) || 0;
+            let midtermExam = parseFloat(document.getElementById("ge-midterm-exam").value) || 0;
+
+            let learningFinals = parseFloat(document.getElementById("ge-learning-finals").value) || 0;
+            let performanceFinals = parseFloat(document.getElementById("ge-performance-finals").value) || 0;
+            let midtermExamFinals = parseFloat(document.getElementById("ge-midterm-exam-finals").value) || 0;
+            let finalExam = parseFloat(document.getElementById("ge-final-exam").value) || 0;
+
+            let midtermGrade = (learning * 0.3) + (performance * 0.4) + (midtermExam * 0.3);
+            let finalGrade = (learningFinals * 0.3) + (performanceFinals * 0.4) + (midtermExamFinals * 0.15) + (finalExam * 0.15);
+            let overallGrade = (midtermGrade * 0.5) + (finalGrade * 0.5);
+
+            document.getElementById("geResult").innerText = `Final GE Grade: ${overallGrade.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
